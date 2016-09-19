@@ -11,12 +11,10 @@ $(function () {
     var downBB = $('input.clock_enabled[value="1830"]');
 
     if (nowTime > upTimeRangeStart && nowTime < upTimeRangeEnd && upBB.parents('td').next().text().trim() == '') {
-        console.log('打卡上班');
-        // upBB.click();
+        upBB.click();
     }
 
     if (nowTime > downTimeRangeStart && downBB.parents('td').next().text().trim() == '') {
-        console.log('打卡下班');
-        // downBB.click();
+        downBB.click();
     }
 });
