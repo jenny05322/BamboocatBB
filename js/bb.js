@@ -1,20 +1,40 @@
 $(function () {
     var nowTime = new Date();
-    nowTime = nowTime.getHours() + ':' + nowTime.getMinutes() + ':' + nowTime.getSeconds();
+    var nowDay = nowTime.getDay();
 
-    var upTimeRangeStart = '08:50:00';
-    var upTimeRangeEnd = '09:10:00';
+    if (nowDay >= 1 && nowDay <= 5) {
+        var nowHours = nowTime.getHours();
+        var nowMinutes = nowTime.getMinutes();
+        var nowSeconds = nowTime.getSeconds();
 
-    var downTimeRangeStart = '18:00:00';
+        if (nowHours < 10) {
+            nowHours = '0' + String(nowHours);
+        }
 
-    var upBB = $('input.clock_enabled[value="0900"]');
-    var downBB = $('input.clock_enabled[value="1830"]');
+        if (nowMinutes < 10) {
+            nowMinutes = '0' + String(nowMinutes);
+        }
 
-    if (nowTime > upTimeRangeStart && nowTime < upTimeRangeEnd && upBB.parents('td').next().text().trim() == '') {
-        upBB.click();
-    }
+        if (nowSeconds < 10) {
+            nowSeconds = '0' + String(nowSeconds);
+        }
 
-    if (nowTime > downTimeRangeStart && downBB.parents('td').next().text().trim() == '') {
-        downBB.click();
+        nowTime = nowHours + ':' + nowMinutes + ':' + nowSeconds;
+
+        var upTimeRangeStart = '08:50:00';
+        var upTimeRangeEnd = '09:10:00';
+
+        var downTimeRangeStart = '18:00:00';
+
+        var upBB = $('input.clock_enabled[value="0900"]');
+        var downBB = $('input.clock_enabled[value="1830"]');
+
+        if (nowTime > upTimeRangeStart && nowTime < upTimeRangeEnd && upBB.parents('td').next().text().trim() == '') {
+            upBB.click();
+        }
+
+        if (nowTime > downTimeRangeStart && downBB.parents('td').next().text().trim() == '') {
+            downBB.click();
+        }
     }
 });

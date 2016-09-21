@@ -17,8 +17,14 @@
     "permissions": [
         "storage"
     ],
-    "content_scripts": [{
-        "matches": ["https://femascloud.com/bamboocat/users/main?from=/Accounts/login?ext=html", "https://femascloud.com/bamboocat/Users/main"],
-        "js": ["js/jquery-3.1.0.min.js", "js/bb.js"]
-    }]
+    "content_scripts": [
+        {
+            "matches": ["https://femascloud.com/bamboocat/users/main?from=/Accounts/login?ext=html", "https://femascloud.com/bamboocat/Users/main"],
+            "js": ["js/jquery-3.1.0.min.js", "js/bb.js"]
+        },
+        {
+            "matches": ["https://femascloud.com/bamboocat/"],
+            "js": ["js/jquery-3.1.0.min.js", "js/login_with_femascloud.js"]
+        }
+    ]
 }
